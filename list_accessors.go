@@ -1,7 +1,5 @@
 package list
 
-import "fmt"
-
 // get first string of the List
 func (list *List) First() string {
 	if list.length == 0 {
@@ -48,10 +46,8 @@ func (list *List) Slice(from, to int) []string {
 	diff := to - from + 1
 	result := make([]string, diff)
 	tmp := list.first
-	fmt.Printf("from: %v, to: %v, length: %v\n", from, to, list.length)
 	for i := 0; i < list.length; i++ {
 		if i >= from && i <= to {
-			fmt.Println(i - from)
 			result[i-from] = tmp.Content
 		}
 		if i >= to {
@@ -141,8 +137,6 @@ func (list *List) PopN(n int) []string {
 		return oneSlice(list.Pop())
 	}
 	pos := list.length - n
-	fmt.Println(pos)
-	fmt.Println(list.length)
 	return list.Slice(pos, -1)
 }
 

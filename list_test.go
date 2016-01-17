@@ -1,16 +1,9 @@
 package list
 
 import (
-	"fmt"
 	"strings"
 	"testing"
 )
-
-func TestPush(t *testing.T) {
-	l := New()
-	l.Push("a").Push("b")
-	fmt.Println(l.Contents())
-}
 
 func TestAccessors(t *testing.T) {
 	str := "a b c d e d e d"

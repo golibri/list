@@ -55,6 +55,23 @@ func TestAccessors(t *testing.T) {
 	if sliceMismatch(list.Contents(), slice) {
 		t.Errorf("error pushing n items around, %v", list.Contents())
 	}
+
+	if list.IndexOf("a") != 0 {
+		t.Errorf("error indexOf: expected: 0, got: %v", list.IndexOf("a"))
+	}
+
+	if !list.Contains("a") {
+		t.Errorf("error list contain")
+	}
+
+	if list.Contains("9") {
+		t.Errorf("error list contain")
+	}
+
+	list.Uniq()
+	if sliceMismatch(list.Contents(), []string{"a", "b", "c", "d", "e"}) {
+		t.Errorf("uniq error, got: %v", list.Contents())
+	}
 }
 
 func sliceMismatch(a, b []string) bool {

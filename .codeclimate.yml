@@ -7,6 +7,6 @@ engines:
     enabled: true
   govet:
     enabled: true
-  ratings:
-    paths:
-    - "*.go"
+ratings:
+  paths:
+  - "*.go"

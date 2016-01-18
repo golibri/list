@@ -1,3 +1,9 @@
 engines:
   fixme:
     enabled: true
+  golint:
+    enabled: true
+  gofmt:
+    enabled: true
+  govet:
+    enabled: true

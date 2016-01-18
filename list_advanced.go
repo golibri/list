@@ -46,3 +46,42 @@ func (list *List) Uniq() *List {
 	}
 	return list
 }
+
+// remove entries based on a truth-function
+func (list *List) Filter(f func(string) bool) {
+	if list.length == 0 {
+		return
+	}
+	var start, current *ListItem
+	length := 0
+	tmp := list.first
+	for i := 0; i < list.length; i++ {
+		if f(tmp.Content) {
+			if length == 0 {
+				start = tmp
+				current = tmp
+			} else {
+				current.Next = tmp
+				current = tmp
+			}
+			length++
+		}
+		if tmp.Next != nil {
+			tmp = tmp.Next
+		} else {
+			break
+		}
+	}
+	list.first = start
+	list.last = current
+	list.length = length
+}
+
+// map function
+func (list *List) Map(f func(string) string) {
+	tmp := list.first
+	for i := 0; i < list.length; i++ {
+		tmp.Content = f(tmp.Content)
+		tmp = tmp.Next
+	}
+}

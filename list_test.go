@@ -72,6 +72,16 @@ func TestAccessors(t *testing.T) {
 	if sliceMismatch(list.Contents(), []string{"a", "b", "c", "d", "e"}) {
 		t.Errorf("uniq error, got: %v", list.Contents())
 	}
+
+	list.Filter(func(s string) bool { return s != "c" })
+	if sliceMismatch(list.Contents(), []string{"a", "b", "d", "e"}) {
+		t.Errorf("filter error, got: %v", list.Contents())
+	}
+
+	list.Map(func(s string) string { return s + s })
+	if sliceMismatch(list.Contents(), []string{"aa", "bb", "dd", "ee"}) {
+		t.Errorf("map error, got: %v", list.Contents())
+	}
 }
 
 func sliceMismatch(a, b []string) bool {

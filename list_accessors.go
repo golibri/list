@@ -1,5 +1,10 @@
 package list
 
+// Return the current length of the List
+func (list *List) Length() int {
+	return list.length
+}
+
 // get first string of the List
 func (list *List) First() string {
 	if list.length == 0 {

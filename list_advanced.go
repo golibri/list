@@ -1,5 +1,6 @@
 package list
 
+// Checks if the List has zero elements
 func (list *List) IsEmpty() bool {
 	return list.length == 0
 }

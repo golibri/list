@@ -85,3 +85,12 @@ func (list *List) Map(f func(string) string) {
 		tmp = tmp.Next
 	}
 }
+
+// Iterate over all elements, call f for every element
+func (list *List) Each(f func(string)) {
+	tmp := list.first
+	for i := 0; i < list.length; i++ {
+		f(tmp.Content)
+		tmp = tmp.Next
+	}
+}

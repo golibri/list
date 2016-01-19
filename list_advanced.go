@@ -1,7 +1,7 @@
 package list
 
 func (list *List) IsEmpty() bool {
-	return list.first == nil
+	return list.length == 0
 }
 
 // Checks if a specific string exists within the List

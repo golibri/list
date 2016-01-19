@@ -1,5 +1,9 @@
 package list
 
+func (list *List) IsEmpty() bool {
+	return list.first == nil
+}
+
 // Checks if a specific string exists within the List
 func (list *List) Contains(s string) bool {
 	return list.IndexOf(s) != -1

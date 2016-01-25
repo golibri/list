@@ -99,3 +99,18 @@ func (list *List) Each(f func(string)) {
 		tmp = tmp.Next
 	}
 }
+
+// return the most commonest item (in case of duplicated items!)
+func (list *List) Commonest() string {
+	count := make(map[string]int)
+	list.Each(func(s string) { count[s]++ })
+	var c_string string
+	var c_count int
+	for k, v := range count {
+		if v > c_count {
+			c_string = k
+			c_count = v
+		}
+	}
+	return c_string
+}

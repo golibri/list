@@ -29,6 +29,10 @@ func TestAccessors(t *testing.T) {
 		t.Errorf("slice mismatch: %v", list.Slice(2, 4))
 	}
 
+	if list.Commonest() != "d" {
+		t.Errorf("commonest element error, got: %v", list.Commonest())
+	}
+
 	list.Push("x").Shift("y")
 
 	if list.First() != "y" {
